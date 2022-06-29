@@ -1,5 +1,5 @@
 import AddAxieAccountModal from '../components/addAxieAccountModal'
-import AxieAccountsTable from '../components/AxieAccountsTable'
+import AxieAccountsTable from '../components/axieAccountsTable'
 import { useState, useContext, useEffect, createContext } from 'react'
 import { Button, Container, Typography, Card } from "@mui/material"
 import AddIcon from '@mui/icons-material/Add'
