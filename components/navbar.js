@@ -53,7 +53,7 @@ export default function Navbar() {
                         onClick={() => router.push(data && '/')}
                         sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}
                     >
-                        <Image src={logo} width={40} height={40} />
+                        <Image src={logo} width={40} height={40} alt='Yellow axie wearing shades with lots of cash in the background'/>
                         <Typography
                             variant="h6"
                             noWrap
@@ -132,7 +132,7 @@ export default function Navbar() {
                         sx={{ flexGrow: 1, alignItems: 'center', display: { xs: 'flex', md: 'none' } }}
                         onClick={() => router.push(data && '/')}
                     >
-                        <Image src={logo} width={40} height={40} />
+                        <Image src={logo} width={40} height={40} alt='Yellow axie wearing shades with lots of cash in the background'/>
                         <Typography
                             ml={1}
                             variant="body1"
