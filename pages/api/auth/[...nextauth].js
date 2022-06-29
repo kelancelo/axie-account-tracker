@@ -43,7 +43,7 @@ export const authOptions = {
         brandColor: "", // Hex color value
         logo: "/signIn-logo.png"
     },
-    secret: 'shgruitgegy'
+    secret: 'b15a2c6eb21f23da821958ec6e930038'
 }
 
 export default NextAuth(authOptions)
