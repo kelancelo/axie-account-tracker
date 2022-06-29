@@ -12,7 +12,7 @@ import {
 import { useState, useEffect } from 'react'
 
 
-export default function ScholarsTable(props) {
+export default function AxieAccountsTable(props) {
     let tableRows
 
     if (props.isFetching) {
