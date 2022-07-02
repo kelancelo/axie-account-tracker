@@ -4,7 +4,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import CloseIcon from '@mui/icons-material/Close'
 import { useContext } from 'react'
 import { AppContext } from '../pages/_app';
-import { FetchContext } from '../pages';
+import { FetchContext } from '../pages/main';
 
 export default function UpdateAxieAccountModal(props) {
     const { setAlert } = useContext(AppContext)

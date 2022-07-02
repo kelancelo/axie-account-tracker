@@ -1,7 +1,7 @@
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from "@mui/material"
 import { useContext } from "react"
 import { AppContext } from "../pages/_app"
-import { FetchContext } from "../pages"
+import { FetchContext } from "../pages/main"
 
 export default function DeleteAxieAccountModal({ open, handleClose, roninAdd, token }) {
     const { setAlert } = useContext(AppContext)

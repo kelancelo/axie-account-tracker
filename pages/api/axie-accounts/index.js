@@ -10,7 +10,8 @@ export default async function handler(req, res) {
         res.status(401).json({ message: 'You must be logged in.' })
     } else if (req.method === 'GET') {
         const axieAccounts = await prisma.axieAccount.findMany({
-            where: { userId: session.user.id }
+            where: { userId: session.user.id },
+            orderBy: { dateCreated: 'asc' }
         })
         res.status(200).json(axieAccounts)
     } else if (req.method === 'POST') {

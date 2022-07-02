@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import logo from '../public/logo.png'
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import ColorModeToggle from './colorModeToggle'
@@ -135,7 +135,7 @@ export default function Navbar() {
                         <Image src={logo} width={40} height={40} alt='Yellow axie wearing shades with lots of cash in the background'/>
                         <Typography
                             ml={1}
-                            variant="body1"
+                            variant="body2"
                             noWrap
                             component="a"
                             sx={{
