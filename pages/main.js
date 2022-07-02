@@ -20,8 +20,13 @@ export default function Main() {
 
         async function fetchAxieAccounts() {
             const response = await fetch('/api/axie-accounts')
-            const data = await response.json()
-            return data
+            if (response.ok) {
+                const data = await response.json()
+                return data
+            }
+            else {
+                console.info(response.body)
+            }
         }
 
         async function fetchAxies(roninAdd) {
