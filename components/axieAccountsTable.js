@@ -45,7 +45,7 @@ export default function AxieAccountsTable(props) {
                         <TableCell>Scholar</TableCell>
                         <TableCell>Manager</TableCell>
                         <TableCell>Total</TableCell>
-                        <TableCell>Axies</TableCell>
+                        {/* <TableCell>Axies</TableCell> */}
                         <TableCell>Last claim</TableCell>
                         <TableCell>Next claim</TableCell>
                     </TableRow>

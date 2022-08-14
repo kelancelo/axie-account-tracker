@@ -11,10 +11,10 @@ import React, { useState, useEffect } from "react"
 
 export default function AxieAccountRow({ accountData }) {
     const [scholarUpdateData, setScholarUpdateData] = useState({})
-    const [axies, setAxies] = useState([])
+    // const [axies, setAxies] = useState([])
     const [roninAdd, setRoninAdd] = useState()
     const [openUpdateScholarModal, setOpenUpdateScholarModal] = useState(false)
-    const [openAxiesModal, setOpenAxiesModal] = useState(false)
+    // const [openAxiesModal, setOpenAxiesModal] = useState(false)
     const [openDeleteScholarModal, setOpenDeleteScholarModal] = useState(false)
     const [open, setOpen] = useState(false)
     const [slpToUsd, setSlpToUsd] = useState(0)
@@ -47,7 +47,7 @@ export default function AxieAccountRow({ accountData }) {
             </span>
         </span>
     )
-    const axieCount = accountData.axies.length
+    // const axieCount = accountData.axies.length
     let now = Date.now()
     let lastClaim = new Date(accountData.slp.lastClaimedItemAt * 1000).toDateString()
     let nextClaim = (accountData.slp.lastClaimedItemAt + 1209600) * 1000
@@ -59,7 +59,7 @@ export default function AxieAccountRow({ accountData }) {
         nextClaimCol = <TableCell sx={{ color: '#66bb6a' }}>Claimable now</TableCell>
     }
     else {
-        nextClaimCol = <TableCell>{Date(nextClaim).toDateString()}</TableCell>
+        nextClaimCol = <TableCell>{new Date(nextClaim).toDateString()}</TableCell>
     }
 
     useEffect(() => {
@@ -107,7 +107,7 @@ export default function AxieAccountRow({ accountData }) {
                 <TableCell>{scholarSlp}</TableCell>
                 <TableCell>{managerSlp}</TableCell>
                 <TableCell >{total}</TableCell>
-                <TableCell >{axieCount}</TableCell>
+                {/* <TableCell >{axieCount}</TableCell> */}
                 <TableCell>{lastClaim}</TableCell>
                 {nextClaimCol}
             </TableRow>
@@ -137,7 +137,7 @@ export default function AxieAccountRow({ accountData }) {
                             >
                                 Delete
                             </Button>
-                            <Button
+                            {/* <Button
                                 size='small'
                                 startIcon={<VisibilityIcon />}
                                 color='info'
@@ -145,7 +145,7 @@ export default function AxieAccountRow({ accountData }) {
                                 onClick={() => showAxiesModal(accountData.axies)}
                             >
                                 View Axies
-                            </Button>
+                            </Button> */}
                         </Box>
                     </Collapse>
                 </TableCell>
@@ -158,11 +158,11 @@ export default function AxieAccountRow({ accountData }) {
                 handleClose={() => setOpenUpdateScholarModal(false)}
             />
 
-            <AxiesModal
+            {/* <AxiesModal
                 axies={axies}
                 open={openAxiesModal}
                 handleClose={() => setOpenAxiesModal(false)}
-            />
+            /> */}
 
             <DeleteAxieAccountModal
                 open={openDeleteScholarModal}

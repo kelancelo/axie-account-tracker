@@ -11,13 +11,12 @@ export const FetchContext = createContext()
 export default function Main() {
     const { status } = useSession()
     const [axieAccountsData, setAxieAccountsData] = useState([])
-    const [isFetching, setIsFetching] = useState()
+    const [isFetching, setIsFetching] = useState(true)
     const [openAddaccountModal, setOpenAddaccountModal] = useState(false)
     const router = useRouter()
 
     async function fetchAndMergeAxieAccountsData(setAxieAccountsData, setIsFetching) {
         setIsFetching(true)
-
         async function fetchAxieAccounts() {
             const response = await fetch('/api/axie-accounts')
             if (response.ok) {
@@ -25,10 +24,9 @@ export default function Main() {
                 return data
             }
             else {
-                console.info(response.body)
+                console.info('fetchAxieAccounts:', response)
             }
         }
-
         async function fetchAxies(roninAdd) {
             const options = {
                 method: 'GET',
@@ -41,7 +39,6 @@ export default function Main() {
             const data = await response.json()
             return data.response.result.data.axies.results
         }
-
         async function fetchSLPAndMMR(roninAdd) {
             const options = {
                 method: 'GET',
@@ -54,28 +51,23 @@ export default function Main() {
             const data = await response.json()
             return data
         }
-
         const axieAccountsData = []
         const axieAccounts = await fetchAxieAccounts()
-        //console.log('axieAccounts', axieAccounts)
-        for (const account of axieAccounts) {
-            const axies = await fetchAxies(account.roninAdd)
-            const SLPAndMMR = await fetchSLPAndMMR(account.roninAdd)
-            axieAccountsData.push({ ...account, axies, ...SLPAndMMR })
+        if (axieAccounts) {
+            for (const account of axieAccounts) {
+                // const axies = await fetchAxies(account.roninAdd)
+                const SLPAndMMR = await fetchSLPAndMMR(account.roninAdd)
+                // axieAccountsData.push({ ...account, axies, ...SLPAndMMR })
+                axieAccountsData.push({ ...account, ...SLPAndMMR })
+            }
+            setAxieAccountsData(axieAccountsData)
         }
-
-        setAxieAccountsData(axieAccountsData)
         setIsFetching(false)
     }
 
     useEffect(() => {
         if (status === 'authenticated') {
-            try {
-                fetchAndMergeAxieAccountsData(setAxieAccountsData, setIsFetching)
-            }
-            catch (err) {
-                console.error(err)
-            }
+            fetchAndMergeAxieAccountsData(setAxieAccountsData, setIsFetching)
         }
     }, [status])
 
