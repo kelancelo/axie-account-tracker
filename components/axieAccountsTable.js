@@ -14,15 +14,7 @@ import {
 export default function AxieAccountsTable(props) {
     let tableRows
 
-    if (props.isFetching) {
-        tableRows = (
-            <TableRow>
-                <TableCell colSpan={13}>
-                    <CircularProgress disableShrink sx={{ ml: '40vw' }} />
-                </TableCell>
-            </TableRow>
-        )
-    } else if (props.axieAccountsData) {
+    if (!props.isFetching && props.axieAccountsData.length > 0) {
         tableRows = props.axieAccountsData.map(accountData => (
             <AxieAccountRow
                 key={accountData.roninAdd}
@@ -30,6 +22,25 @@ export default function AxieAccountsTable(props) {
             />
         ))
     }
+    else if (props.isFetching) {
+        tableRows = (
+            <TableRow>
+                <TableCell colSpan={13}>
+                    <CircularProgress disableShrink sx={{ ml: '40vw' }} />
+                </TableCell>
+            </TableRow>
+        )
+    }
+    else {
+        tableRows = (
+            <TableRow>
+                <TableCell colSpan={13}>
+                    Add an account to start tracking!
+                </TableCell>
+            </TableRow>
+        )
+    }
+
 
     return (
         <TableContainer component={Paper} sx={{ textAlign: 'center' }}>
