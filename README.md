@@ -6,6 +6,7 @@ These are the technologies used to build this app
 * CSS3
 * Heroku
 * Next.js
+* Prisma
 * PostgreSQL
 * Vercel
 
